@@ -3,15 +3,15 @@ const venusValue = 0.62;
 const marsValue = 1.88;
 const jupiterValue = 11.86;
 
-export class Person {
 
-  constructor (age, lifeExpectancy) {
+export class Person {
+  constructor(age, lifeExpectancy) {
     this.age = age;
     this.lifeExpectancy = lifeExpectancy;
   }
 
   getEarthAge() {
-    return Math.floor(this.age);
+    return this.age;
   }
 
   getMercuryAge() {
@@ -35,19 +35,27 @@ export class Person {
   }
 
   getRemainingMercuryYears() {
-    return Math.abs(Math.floor(this.lifeExpectancy / mercuryValue) - (this.age / mercuryValue));
+    let mercuryYears = Math.floor(this.age / mercuryValue) //100
+    let mercuryExpectancy = Math.floor(this.lifeExpectancy / mercuryValue) //329
+    return mercuryExpectancy - mercuryYears;
   }
 
   getRemainingVenusYears() {
-    return Math.abs(Math.floor(this.lifeExpectancy / venusValue) - (this.age / venusValue));
+    let venusYears = Math.floor(this.age / venusValue) //38
+    let venusExpectancy = Math.floor(this.lifeExpectancy / venusValue) //127
+    return venusExpectancy - venusYears;
   }
 
   getRemainingMarsYears() {
-    return Math.abs(Math.floor(this.lifeExpectancy / marsValue) - (this.age / marsValue));
+    let marsYears = Math.floor(this.age / marsValue)  //12
+    let marsExpectancy = Math.floor(this.lifeExpectancy / marsValue) //42
+    return marsExpectancy - marsYears;
   }
 
   getRemainingJupiterYears() {
-    return Math.abs(Math.floor(this.lifeExpectancy / jupiterValue) - (this.age / jupiterValue));
+    let jupiterYears = Math.floor(this.age / jupiterValue) //2
+    let jupiterExpectancy = Math.floor(this.lifeExpectancy / jupiterValue) //6
+    return jupiterExpectancy - jupiterYears;
   }
-  
+
 }

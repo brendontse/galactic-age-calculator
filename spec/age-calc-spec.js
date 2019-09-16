@@ -1,64 +1,64 @@
-import { Person } from '../src/ageCalculator'
+import { Person } from './../src/ageCalculator.js';
 
-describe('AgeCalculator', function() {
+describe('Person', function() {
+  let userInput;
+  let testAge;
 
-  let person;
-  let testEarthAge = 24;
-
-  it('should test if Earth age is what the user inputted', function() {
-    expect(person.getEarthAge()).toEqual(testEarthAge);
+  beforeEach(function() {
+    userInput = new Person(24, 79);
   });
 
+  it('should test if Earth age is what the user inputted', function() {
+    expect(userInput.age).toEqual(24);
+  });
+
+
   it('should test if Mercury age is accurate', function() {
-    let testAge = Math.floor(testEarthAge / 0.24);
-    expect(person.getMercuryAge()).toEqual(testAge);
+    testAge = Math.floor(userInput.age / 0.24);
+    expect(userInput.getMercuryAge()).toEqual(testAge);
   });
 
   it('should test if Venus age is accurate', function() {
-    let testAge = Math.floor(testEarthAge / 0.62);
-    expect(person.getVenusAge()).toEqual(testAge);
+    let testAge = Math.floor(userInput.age / 0.62);
+    expect(userInput.getVenusAge()).toEqual(testAge);
   });
 
   it('should test if Mars age is accurate', function() {
-    let testAge = Math.floor(testEarthAge / 1.88);
-    expect(person.getMarsAge()).toEqual(testAge);
+    let testAge = Math.floor(userInput.age / 1.88);
+    expect(userInput.getMarsAge()).toEqual(testAge);
   });
 
   it('should test if Jupiter age is accurate', function() {
-    let testAge = Math.floor(testEarthAge / 11.86);
-    expect(person.getJupiterAge()).toEqual(testAge);
+    let testAge = Math.floor(userInput.age / 11.86);
+    expect(userInput.getJupiterAge()).toEqual(testAge);
+  });
+});
+
+describe('LifeExpectancy', function() {
+  let userInput;
+  let testAge;
+
+  beforeEach(function() {
+    userInput = new Person(24, 79);
   });
 
-describe('LifeExpectancy', function(){
-  let person;
-  let testEarthAge = 24;
-  let testAmericanLifeExpectancy = 79;
-
   it('should test if your remaining Earth years are accurate', function() {
-    expect(person.getRemainingEarthYears()).toEqual(testAmericanLifeExpectancy - testEarthAge);
+    expect(userInput.getRemainingEarthYears()).toEqual(55);
   });
 
   it('should test if your remaining Mercury years are accurate', function() {
-    let testMercuryAge = (testEarthAge / 0.24);
-    let testMercuryLifeExpectancy = (testAmericanLifeExpectancy / 0.24);
-    expect(person.getRemainingMercuryYears()).toEqual(Math.floor(testMercuryAge - testMercuryLifeExpectancy));
+    expect(userInput.getRemainingMercuryYears()).toEqual(229);
   });
 
-  it('should test if your remaining Venus years are accurate', function() {
-    let testVenusAge = (testEarthAge / 0.62);
-    let testVenusLifeExpectancy = (testAmericanLifeExpectancy / 0.62);
-    expect(person.getRemainingVenusYears()).toEqual(Math.floor(testVenusAge - testVenusLifeExpectancy));
+  it('should test if your remaining Mercury years are accurate', function() {
+    expect(userInput.getRemainingVenusYears()).toEqual(89);
   });
 
   it('should test if your remaining Mars years are accurate', function() {
-    let testMarsAge = (testEarthAge / 0.1.88);
-    let testMarsLifeExpectancy = (testAmericanLifeExpectancy / 0.1.88);
-    expect(person.getRemainingMarsYears()).toEqual(Math.floor(testMarsAge - testMarsLifeExpectancy));
+    expect(userInput.getRemainingMarsYears()).toEqual(30);
   });
 
   it('should test if your remaining Jupiter years are accurate', function() {
-    let testJupiterAge = (testEarthAge / 11.86);
-    let testJupiterLifeExpectancy = (testAmericanLifeExpectancy / 11.86);
-    expect(person.getRemainingJupiterYears()).toEqual(Math.floor(testJupiterAge - testJupiterLifeExpectancy));
+    expect(userInput.getRemainingJupiterYears()).toEqual(4);
   });
 });

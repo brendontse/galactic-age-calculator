@@ -7,7 +7,5 @@ import { Person } from './ageCalculator.js';
 
 
 $(document).ready(function() {
-  $('#form').submit(function(event) {
 
-  });
 });
